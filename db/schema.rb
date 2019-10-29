@@ -1,37 +1,34 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# This file is the source Rails uses to define your schema when running `rails
+# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180117002358) do
+ActiveRecord::Schema.define(version: 2018_01_17_002358) do
 
-  create_table "read_only_users", force: :cascade do |t|
-    t.string   "username",   limit: 255
-    t.string   "grantee",    limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "read_only_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+    t.string "username"
+    t.string "grantee"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["grantee"], name: "index_read_only_users_on_grantee"
+    t.index ["username"], name: "index_read_only_users_on_username"
   end
 
-  add_index "read_only_users", ["grantee"], name: "index_read_only_users_on_grantee", using: :btree
-  add_index "read_only_users", ["username"], name: "index_read_only_users_on_username", using: :btree
-
-  create_table "service_instances", force: :cascade do |t|
-    t.string  "guid",           limit: 255
-    t.string  "plan_guid",      limit: 255
-    t.integer "max_storage_mb", limit: 4,   default: 0, null: false
-    t.string  "db_name",        limit: 255
+  create_table "service_instances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+    t.string "guid"
+    t.string "plan_guid"
+    t.integer "max_storage_mb", default: 0, null: false
+    t.string "db_name"
+    t.index ["db_name"], name: "index_service_instances_on_db_name"
+    t.index ["guid"], name: "index_service_instances_on_guid"
+    t.index ["plan_guid"], name: "index_service_instances_on_plan_guid"
   end
-
-  add_index "service_instances", ["db_name"], name: "index_service_instances_on_db_name", using: :btree
-  add_index "service_instances", ["guid"], name: "index_service_instances_on_guid", using: :btree
-  add_index "service_instances", ["plan_guid"], name: "index_service_instances_on_plan_guid", using: :btree
 
 end

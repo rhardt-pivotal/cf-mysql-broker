@@ -1,4 +1,4 @@
-class CreateServiceInstances < ActiveRecord::Migration
+class CreateServiceInstances < ActiveRecord::Migration[6.0]
   class ServiceInstance < ActiveRecord::Base
   end
 
