@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_01_17_002358) do
 
-  create_table "read_only_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+  create_table "read_only_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "username"
     t.string "grantee"
     t.datetime "created_at", precision: 6, null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2018_01_17_002358) do
     t.index ["username"], name: "index_read_only_users_on_username"
   end
 
-  create_table "service_instances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+  create_table "service_instances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "guid"
     t.string "plan_guid"
     t.integer "max_storage_mb", default: 0, null: false

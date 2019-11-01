@@ -18,4 +18,6 @@ CfMysqlBroker::Application.configure do
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
+
+  config.hosts << "util01.labs.local"
 end
