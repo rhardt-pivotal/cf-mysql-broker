@@ -63,6 +63,7 @@ CfMysqlBroker::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.hosts << ENV["BROKER_HOST"]
+  #fronted by NGINX, not bothering to pass along the host for now - it's in the nginx logs
+  config.hosts << 127.0.0.1
 
 end
