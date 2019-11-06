@@ -64,6 +64,6 @@ CfMysqlBroker::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   #fronted by NGINX, not bothering to pass along the host for now - it's in the nginx logs
-  config.hosts << 127.0.0.1
+  config.hosts << "127.0.0.1"
 
 end
