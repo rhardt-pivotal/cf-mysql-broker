@@ -12,9 +12,9 @@ assets:
   encoding: utf8
   database: development
   pool: 5
-  username: root
-  password:
-  host: localhost
+  username: brokertest
+  password: du123de
+  host: 10.244.0.6
   port: 3306
 
 development:
@@ -22,9 +22,9 @@ development:
   encoding: utf8
   database: development
   pool: 5
-  username: root
-  password:
-  host: localhost
+  username: cf-mysql-broker
+  password: u5jevEhBhl7Feb69MXpYDlXxZtxv4u
+  host: 10.60.10.31
   port: 3306
 
 # Warning: The database defined as "test" will be erased and
@@ -35,9 +35,9 @@ test:
   encoding: utf8
   database: test
   pool: 5
-  username: root
-  password:
-  host: localhost
+  username: cf-mysql-broker
+  password: ujzcdY8yKmOECfXuMisg6UtRcs0NwS
+  host: 10.244.0.6
   port: 3306
 
 ci_test:
@@ -45,7 +45,18 @@ ci_test:
   encoding: utf8
   database: test
   pool: 5
-  username: root
-  password:
-  host: localhost
+  username: brokertest
+  password: du123de
+  host: 10.244.0.6
   port: 3306
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: mysql_broker
+  pool: 5
+  username: cf-mysql-broker
+  password: u5jevEhBhl7Feb69MXpYDlXxZtxv4u
+  host: 10.60.10.31
+  port: 3306
+

@@ -14,7 +14,7 @@ class V2::ServiceInstancesController < V2::BaseController
       instance_guid = params.fetch(:id)
       instance = ServiceInstanceManager.create(guid: instance_guid, plan_guid: plan_guid)
 
-      render status: 201, json: { dashboard_url: build_dashboard_url(instance) }
+      render status: 201, json: {} # { dashboard_url: build_dashboard_url(instance) }
     else
       render status: 507, json: {'description' => 'Service capacity has been reached'}
     end
@@ -56,12 +56,12 @@ class V2::ServiceInstancesController < V2::BaseController
 
   private
 
-  def build_dashboard_url(instance)
-    domain = Settings.external_host
-    path   = manage_instance_path(instance.guid)
-
-    "#{scheme}://#{domain}#{path}"
-  end
+  # def build_dashboard_url(instance)
+  #   domain = Settings.external_host
+  #   path   = manage_instance_path(instance.guid)
+  #
+  #   "#{scheme}://#{domain}#{path}"
+  # end
 
   def scheme
     Settings['ssl_enabled'] == false ? 'http': 'https'

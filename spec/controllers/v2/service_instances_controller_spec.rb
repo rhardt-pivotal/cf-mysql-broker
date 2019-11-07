@@ -51,18 +51,18 @@ describe V2::ServiceInstancesController do
 
     it_behaves_like 'a controller action that does not log its request and response headers and body'
 
-    context 'when ssl is set to false' do
-      before do
-        allow(Settings).to receive(:[]).with('ssl_enabled').and_return(false)
-      end
-
-      it 'returns a dashboard URL without https' do
-        make_request
-
-        instance = JSON.parse(response.body)
-        expect(instance).to eq({'dashboard_url' => "http://p-mysql.bosh-lite.com/manage/instances/#{instance_id}"})
-      end
-    end
+    # context 'when ssl is set to false' do
+    #   before do
+    #     allow(Settings).to receive(:[]).with('ssl_enabled').and_return(false)
+    #   end
+    #
+    #   it 'returns a dashboard URL without https' do
+    #     make_request
+    #
+    #     instance = JSON.parse(response.body)
+    #     expect(instance).to eq({'dashboard_url' => "http://p-mysql.bosh-lite.com/manage/instances/#{instance_id}"})
+    #   end
+    # end
 
     context 'when the provided plan_id is not present in the catalog' do
       let(:plan_id) { "does-not-exist-in-catalog" }
@@ -100,12 +100,12 @@ describe V2::ServiceInstancesController do
         make_request
       end
 
-      it 'returns the dashboard_url' do
-        make_request
-
-        instance = JSON.parse(response.body)
-        expect(instance).to eq({'dashboard_url' => "https://p-mysql.bosh-lite.com/manage/instances/#{instance_id}"})
-      end
+      # it 'returns the dashboard_url' do
+      #   make_request
+      #
+      #   instance = JSON.parse(response.body)
+      #   expect(instance).to eq({'dashboard_url' => "https://p-mysql.bosh-lite.com/manage/instances/#{instance_id}"})
+      # end
     end
 
     context 'when creating additional instances is not allowed' do
