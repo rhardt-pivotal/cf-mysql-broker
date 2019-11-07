@@ -15,7 +15,7 @@ class Service
     @tags        = attrs.fetch('tags', [])
     @metadata    = attrs.fetch('metadata', nil)
     @plans       = attrs.fetch('plans', [])
-    @dashboard_client = attrs.fetch('dashboard_client', {})
+    # @dashboard_client = attrs.fetch('dashboard_client', {})
   end
 
   def bindable?
@@ -31,8 +31,8 @@ class Service
       'metadata'         => metadata,
       'plan_updateable'  => plan_updateable,
       'plans'            => plans.map(&:to_hash),
-      'bindable'         => bindable?,
-      'dashboard_client' => dashboard_client
+      'bindable'         => bindable?
+      # 'dashboard_client' => dashboard_client
     }
   end
 end

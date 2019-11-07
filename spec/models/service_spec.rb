@@ -14,11 +14,11 @@ describe Service do
         'tags'        => ['tagA', 'tagB'],
         'metadata'    => { 'stuff' => 'goes here' },
         'plans'       => [],
-        'dashboard_client' => {
-          'id'           => 'sso-client',
-          'secret'       => 'something-secret',
-          'redirect_uri' => 'example.com'
-        },
+        # 'dashboard_client' => {
+        #   'id'           => 'sso-client',
+        #   'secret'       => 'something-secret',
+        #   'redirect_uri' => 'example.com'
+        # },
         'plan_updateable' => true
       )
       expect(service.id).to eq('my-id')
@@ -26,11 +26,11 @@ describe Service do
       expect(service.description).to eq('my description')
       expect(service.tags).to eq(['tagA', 'tagB'])
       expect(service.metadata).to eq({ 'stuff' => 'goes here' })
-      expect(service.dashboard_client).to eql({
-        'id'           => 'sso-client',
-        'secret'       => 'something-secret',
-        'redirect_uri' => 'example.com'
-      })
+      # expect(service.dashboard_client).to eql({
+      #   'id'           => 'sso-client',
+      #   'secret'       => 'something-secret',
+      #   'redirect_uri' => 'example.com'
+      # })
       expect(service.plan_updateable).to eq true
     end
 
@@ -99,21 +99,21 @@ describe Service do
       end
     end
 
-    context 'when the dashboard_client attr is missing' do
-      let(:service) do
-        Service.build(
-          'id'          => 'my-id',
-          'name'        => 'my-name',
-          'description' => 'my description',
-          'metadata'    => { 'stuff' => 'goes here' },
-          'plans'       => []
-        )
-      end
-
-      it 'sets the field to an empty hash' do
-        expect(service.dashboard_client).to eql({})
-      end
-    end
+    # context 'when the dashboard_client attr is missing' do
+    #   let(:service) do
+    #     Service.build(
+    #       'id'          => 'my-id',
+    #       'name'        => 'my-name',
+    #       'description' => 'my description',
+    #       'metadata'    => { 'stuff' => 'goes here' },
+    #       'plans'       => []
+    #     )
+    #   end
+    #
+    #   it 'sets the field to an empty hash' do
+    #     expect(service.dashboard_client).to eql({})
+    #   end
+    # end
 
     context 'when the plan_updateable attr is missing' do
       let(:service) do
@@ -141,11 +141,11 @@ describe Service do
         'tags'        => ['tagA', 'tagB'],
         'metadata'    => { 'meta' => 'data' },
         'plans'       => [],
-        'dashboard_client' => {
-          'id'           => 'sso-client',
-          'secret'       => 'something-secret',
-          'redirect_uri' => 'example.com'
-        },
+        # 'dashboard_client' => {
+        #   'id'           => 'sso-client',
+        #   'secret'       => 'something-secret',
+        #   'redirect_uri' => 'example.com'
+        # },
         'plan_updateable' => true
       )
 
@@ -156,11 +156,11 @@ describe Service do
       expect(service.to_hash.fetch('tags')).to eq(['tagA', 'tagB'])
       expect(service.to_hash.fetch('metadata')).to eq({ 'meta' => 'data' })
       expect(service.to_hash).to have_key('plans')
-      expect(service.to_hash.fetch('dashboard_client')).to eq({
-        'id'           => 'sso-client',
-        'secret'       => 'something-secret',
-        'redirect_uri' => 'example.com'
-      })
+      # expect(service.to_hash.fetch('dashboard_client')).to eq({
+      #   'id'           => 'sso-client',
+      #   'secret'       => 'something-secret',
+      #   'redirect_uri' => 'example.com'
+      # })
       expect(service.to_hash.fetch('plan_updateable')).to eq true
     end
 

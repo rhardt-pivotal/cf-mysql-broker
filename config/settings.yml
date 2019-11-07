@@ -34,10 +34,10 @@ defaults: &defaults
       providerDisplayName: "Pivotal Software"
       documentationUrl: "http://docs.run.pivotal.io"
       supportUrl: "http://support.run.pivotal.io/home"
-    dashboard_client:
-      id: 'p-mysql'
-      secret: 'p-mysql'
-      redirect_uri: 'http://10.80.130.98:3000/manage/auth/cloudfoundry/callback'
+#    dashboard_client:
+#      id: 'p-mysql'
+#      secret: 'p-mysql'
+#      redirect_uri: 'http://10.80.130.98:3000/manage/auth/cloudfoundry/callback'
     plans:
     - name: 5mb
       id: 2451fa22-df16-4c10-ba6e-1f682d3dcdc9
